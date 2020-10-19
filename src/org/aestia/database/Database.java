@@ -27,7 +27,9 @@ public class Database
     
     public boolean initializeConnection() {
         final HikariConfig config = new HikariConfig();
-        config.setDataSourceClassName("org.mariadb.jdbc.MySQLDataSource");
+        //config.setDataSourceClassName("org.mariadb.jdbc.MySQLDataSource");
+        config.setDataSourceClassName("com.mysql.cj.jdbc.MysqlDataSource");
+        config.addDataSourceProperty("serverTimezone", "Europe/Paris");
         config.addDataSourceProperty("serverName", Main.config.getHost());
         config.addDataSourceProperty("port", Main.config.getPort());
         config.addDataSourceProperty("databaseName", Main.config.getDatabaseName());
